@@ -1,0 +1,26 @@
+<h2 class="h4 mb-4 fw-bold text-danger">
+  <i class="fa-solid fa-box me-2"></i>Báo Cáo Cảnh Báo Tồn Kho
+</h2>
+<button class="btn btn-success mb-3">
+  <i class="fa-solid fa-file-excel me-2"></i> Xuất danh mục cần nhập
+</button>
+<table class="table table-striped table-hover text-center">
+  <thead class="table-dark">
+    <tr>
+      <th>Mã PT</th>
+      <th>Tên Phụ Tùng</th>
+      <th>Đơn Vị Tính</th>
+      <th>Tồn Kho Hiện Tại</th>
+      <th>Mức Tối Thiểu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="pt : ${dsPhuTung}">
+      <td th:text="${pt.maPT}"></td>
+      <td class="text-start" th:text="${pt.tenPT}"></td>
+      <td th:text="${pt.donViTinh}"></td>
+      <td class="text-danger fw-bold" th:text="${pt.soLuongTon}"></td>
+      <td th:text="${pt.tonKhoToiThieu}"></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,26 @@
+<h2 class="h4 mb-4 fw-bold text-success">
+  <i class="fa-solid fa-motorcycle me-2"></i>Báo Cáo Sản Lượng Sửa Chữa
+</h2>
+<button class="btn btn-success mb-3">
+  <i class="fa-solid fa-file-excel me-2"></i> Xuất dữ liệu xe
+</button>
+<table class="table table-hover table-bordered text-center">
+  <thead class="table-dark">
+    <tr>
+      <th>Mã Phiếu</th>
+      <th>Biển Số</th>
+      <th>Ngày Tiếp Nhận</th>
+      <th>Mô Tả Lỗi</th>
+      <th>Trạng Thái</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="p : ${dsPhieu}">
+      <td th:text="'#PSC' + ${p.maPhieu}"></td>
+      <td th:text="${p.bienSo}"></td>
+      <td th:text="${#dates.format(p.ngayTiepNhan, 'dd/MM/yyyy')}"></td>
+      <td th:text="${p.moTaLoi}"></td>
+      <td><span class="badge bg-success" th:text="${p.trangThai}"></span></td>
+    </tr>
+  </tbody>
+</table>

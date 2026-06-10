@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-QlsuachuaxemayApplication<qlsuachuaxemay>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.garage.qlsuachuaxemay.QlsuachuaxemayApplication",
+      "projectName": "qlsuachuaxemay",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
