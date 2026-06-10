@@ -13,7 +13,7 @@ public class PhieuSuaChua {
 
     @ManyToOne
     @JoinColumn(name = "BienSo")
-    private XeMay xeMay; 
+    private Motorbike xeMay;
 
     @ManyToOne
     @JoinColumn(name = "MaNV_TiepNhan")
@@ -32,18 +32,11 @@ public class PhieuSuaChua {
     @Column(name = "TrangThai")
     private String trangThai;
 
-    // Kiểm tra kỹ hàm Getter và Setter phải khớp chữ xeMay
-    public XeMay getXeMay() {
-        return xeMay;
-    }
-
-    public void setXeMay(XeMay xeMay) {
-        this.xeMay = xeMay;
-    }
-
-    // Các Getter/Setter khác giữ nguyên...
+    // Getters và Setters
     public int getMaPhieu() { return maPhieu; }
     public void setMaPhieu(int maPhieu) { this.maPhieu = maPhieu; }
+    public Motorbike getXeMay() { return xeMay; }
+    public void setXeMay(Motorbike xeMay) { this.xeMay = xeMay; }
     public NhanVien getNvTiepNhan() { return nvTiepNhan; }
     public void setNvTiepNhan(NhanVien nvTiepNhan) { this.nvTiepNhan = nvTiepNhan; }
     public NhanVien getNvKyThuat() { return nvKyThuat; }
