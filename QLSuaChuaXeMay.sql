@@ -96,15 +96,17 @@ CREATE TABLE HoaDon (
     FOREIGN KEY (MaNV_ThuNgan) REFERENCES NhanVien(MaNV)
 );
 
--- Insert 5 Nhân viên
+-- 1. Insert 7 Nhân viên (Thêm thợ và thu ngân để dữ liệu đa dạng)
 INSERT INTO NhanVien (HoTen, SoDienThoai, Email, MatKhau, VaiTro) VALUES 
-('Đinh Thái Viết Long', '0911111222', 'longdinh@gmail.com', 'admin123', 'QuanLy'),
-('Lê Quang Duy', '0922222333', 'duyle@gmail.com', '123456', 'NhanVienThuNgan'),
-('Võ Anh Khoa', '0933333444', 'khoavo@gmail.com', '123456', 'TruongNhom'),
-('Lê Huỳnh Gia Bảo', '0944444555', 'baole@gmail.com', '123456', 'ThuKho'),
-('Nguyễn Văn Thợ', '0955555666', 'tho@gmail.com', '123456', 'KyThuatVien');
+('Đinh Thái Viết Long', '0911111222', 'longdinh@gmail.com', 'admin123', 'QuanLy'),          -- ID 1
+('Lê Quang Duy', '0922222333', 'duyle@gmail.com', '123456', 'NhanVienThuNgan'),       -- ID 2
+('Võ Anh Khoa', '0933333444', 'khoavo@gmail.com', '123456', 'TruongNhom'),            -- ID 3
+('Lê Huỳnh Gia Bảo', '0944444555', 'baole@gmail.com', '123456', 'ThuKho'),            -- ID 4
+('Nguyễn Văn Thợ', '0955555666', 'tho1@gmail.com', '123456', 'KyThuatVien'),          -- ID 5
+('Trần Văn Máy', '0966666777', 'maytran@gmail.com', '123456', 'KyThuatVien'),         -- ID 6 (Thợ mới)
+('Phạm Thị Thu', '0977777888', 'thupham@gmail.com', '123456', 'NhanVienThuNgan');     -- ID 7 (Thu ngân mới)
 
--- Insert 10 Khách hàng
+-- 2. Insert 10 Khách hàng
 INSERT INTO KhachHang (HoTen, SoDienThoai, DiaChi) VALUES 
 ('Nguyễn Văn A', '0901000001', 'Quận 12, TP.HCM'),
 ('Trần Thị B', '0901000002', 'Gò Vấp, TP.HCM'),
@@ -117,7 +119,7 @@ INSERT INTO KhachHang (HoTen, SoDienThoai, DiaChi) VALUES
 ('Bùi Minh I', '0901000009', 'Quận 1, TP.HCM'),
 ('Lý Thị K', '0901000010', 'Thủ Đức, TP.HCM');
 
--- Insert 10 Xe máy
+-- 3. Insert 10 Xe máy
 INSERT INTO XeMay (BienSo, MaKH, HangXe, DongXe, SoKhung, SoMay) VALUES 
 ('59A1-11111', 1, 'Honda', 'AirBlade', 'SK001', 'SM001'),
 ('59G2-22222', 2, 'Yamaha', 'Exciter', 'SK002', 'SM002'),
@@ -130,7 +132,7 @@ INSERT INTO XeMay (BienSo, MaKH, HangXe, DongXe, SoKhung, SoMay) VALUES
 ('59K9-99999', 9, 'Yamaha', 'Grande', 'SK009', 'SM009'),
 ('59L1-00000', 10, 'Honda', 'Wave Alpha', 'SK010', 'SM010');
 
--- Insert 10 Phụ tùng
+-- 4. Insert 10 Phụ tùng
 INSERT INTO PhuTung (TenPT, DonViTinh, SoLuongTon, DonGia) VALUES 
 ('Nhớt Máy Castrol 1L', 'Chai', 45, 140000),
 ('Bugi NGK C7', 'Cái', 80, 45000),
@@ -143,20 +145,20 @@ INSERT INTO PhuTung (TenPT, DonViTinh, SoLuongTon, DonGia) VALUES
 ('Bình Xăng Con Keihin', 'Bộ', 5, 550000),
 ('Nhông Sên Dĩa DID', 'Bộ', 8, 380000);
 
--- Insert 10 Phiếu sửa chữa
+-- 5. Insert 10 Phiếu sửa chữa (Phân bổ NV Tiếp nhận và NV Kỹ thuật hợp lý)
 INSERT INTO PhieuSuaChua (BienSo, MaNV_TiepNhan, MaNV_KyThuat, MoTaLoi, TrangThai) VALUES 
-('59A1-11111', 2, 5, 'Thay nhớt định kỳ và kiểm tra phanh trước', 'DaThanhToan'),
-('59G2-22222', 2, 5, 'Xe bị hụt ga, đề không nổ', 'DaThanhToan'),
-('59T3-33333', 2, 5, 'Thay lốp sau và kiểm tra nồi', 'DaThanhToan'),
-('59B4-44444', 2, 5, 'Thay bugi và lọc gió', 'DaThanhToan'),
-('59H5-55555', 2, 5, 'Thay bình ắc quy mới', 'DaSuaXong'),
-('59P6-66666', 2, 5, 'Thay nhông sên dĩa và săm trước', 'DangSua'),
-('59S7-77777', 2, NULL, 'Côn xe kêu to, máy yếu', 'ChuaSua'),
-('59F8-88888', 2, NULL, 'Bảo dưỡng toàn bộ xe', 'ChuaSua'),
-('59K9-99999', 2, 5, 'Đứt dây curoa xe tay ga', 'DangSua'),
-('59L1-00000', 2, 5, 'Thay săm sau bị thủng', 'DaSuaXong');
+('59A1-11111', 2, 5, 'Thay nhớt định kỳ và kiểm tra phanh trước', 'DaThanhToan'), 
+('59G2-22222', 3, 6, 'Xe bị hụt ga, đề không nổ', 'DaThanhToan'),              
+('59T3-33333', 7, 5, 'Thay lốp sau và kiểm tra nồi', 'DaThanhToan'),          
+('59B4-44444', 2, 6, 'Thay bugi và lọc gió', 'DaThanhToan'),
+('59H5-55555', 3, 5, 'Thay bình ắc quy mới', 'DaThanhToan'),
+('59P6-66666', 7, 6, 'Thay nhông sên dĩa và săm trước', 'DaThanhToan'),
+('59S7-77777', 2, 5, 'Côn xe kêu to, máy yếu', 'DaSuaXong'),        
+('59F8-88888', 3, 6, 'Bảo dưỡng toàn bộ xe', 'DaSuaXong'), 
+('59K9-99999', 7, 5, 'Đứt dây curoa xe tay ga', 'DangSua'),
+('59L1-00000', 3, NULL, 'Thay săm sau bị thủng', 'ChuaSua');
 
--- Insert 10 Chi tiết sửa chữa
+-- 6. Insert Chi tiết sửa chữa (Chỉ những xe đang sửa hoặc đã xong mới có chi tiết dùng phụ tùng)
 INSERT INTO ChiTietSuaChua (MaPhieu, MaPT, SoLuong, DonGiaThucTe, TienCong) VALUES 
 (1, 1, 1, 140000, 30000),
 (1, 3, 1, 90000, 40000),
@@ -166,22 +168,18 @@ INSERT INTO ChiTietSuaChua (MaPhieu, MaPT, SoLuong, DonGiaThucTe, TienCong) VALU
 (4, 4, 1, 65000, 20000),
 (5, 8, 1, 320000, 30000),
 (6, 10, 1, 380000, 70000),
-(9, 7, 1, 280000, 80000),
-(10, 5, 1, 75000, 30000);
+(7, 7, 1, 280000, 80000),
+(8, 5, 1, 75000, 30000);
 
--- Insert 10 Lịch sử xuất kho
+-- 7. Insert Lịch sử xuất kho (Chỉ lấy các phiếu đã sửa xong hoặc đang sửa - do Thủ kho Bảo ID 4 xuất)
 INSERT INTO XuatKho (MaPhieuSuaChua, MaNV_ThuKho) VALUES 
-(1, 4), (2, 4), (3, 4), (4, 4), (5, 4), (6, 4), (7, 4), (8, 4), (9, 4), (10, 4);
+(1, 4), (2, 4), (3, 4), (4, 4), (5, 4), (6, 4), (7, 4), (8, 4), (9, 4);
 
--- Insert 10 Hóa đơn thanh toán
+-- 8. Insert Hóa đơn thanh toán (CHỈ LẬP HÓA ĐƠN CHO 6 XE ĐÃ THANH TOÁN - Phân bổ cho 2 Thu Ngân)
 INSERT INTO HoaDon (MaPhieu, MaNV_ThuNgan, TongTienPhuTung, TongTienCong, ThanhTien) VALUES 
 (1, 2, 230000.00, 70000.00, 300000.00),
-(2, 2, 45000.00, 50000.00, 95000.00),
-(3, 2, 450000.00, 60000.00, 510000.00),
-(4, 2, 110000.00, 40000.00, 150000.00),
+(2, 7, 45000.00, 50000.00, 95000.00),
+(3, 2, 450000.00, 60000.00, 510000.00),  
+(4, 7, 110000.00, 40000.00, 150000.00),
 (5, 2, 320000.00, 30000.00, 350000.00),
-(6, 2, 380000.00, 70000.00, 450000.00),
-(7, 2, 0.00, 150000.00, 150000.00),
-(8, 2, 500000.00, 200000.00, 700000.00),
-(9, 2, 280000.00, 80000.00, 360000.00),
-(10, 2, 75000.00, 30000.00, 105000.00);
+(6, 7, 380000.00, 70000.00, 450000.00);

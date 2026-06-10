@@ -112,8 +112,11 @@
                   <td th:text="${phieu.xeMay.khachHang.hoTen}">
                     Tên khách hàng
                   </td>
-                  <td th:text="${phieu.bienSo}"></td>
+
+                  <td th:text="${phieu.xeMay.bienSo}"></td>
+
                   <td class="text-start" th:text="${phieu.moTaLoi}"></td>
+                  <td class="text-danger fw-bold">Xem chi tiết</td>
                   <td>
                     <span
                       th:if="${phieu.trangThai == 'ChuaSua'}"
